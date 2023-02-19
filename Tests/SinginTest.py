@@ -24,8 +24,7 @@ class MyTest (unittest.TestCase):
         self.singInPageObj.click_to_singin_button()
         self.searchObj.fill_search_fild("agv helmet")
         self.searchObj.click_search_element()
-        time.sleep(6)
         self.searchResultObj.click_result_element()
+        time.sleep(6)
     def tearDown(self) -> None:
         self.driver.close()
-
