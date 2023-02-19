@@ -3,8 +3,7 @@ from selenium import webdriver
 import unittest
 from Sources.singinPage import SingInPage
 from Sources.navigationBar import NavigationBar
-from Sources.clickToResult import ClickToResult
-
+from Sources.searchResult import SearchResult
 class MyTest (unittest.TestCase):
     def setUp(self) -> None:
         self.driver = webdriver.Chrome()
@@ -14,7 +13,7 @@ class MyTest (unittest.TestCase):
         self.driver.get("https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fref%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&")
         self.singInPageObj = SingInPage(self.driver)
         self.searchObj = NavigationBar(self.driver)
-        self.clickObj = ClickToResult(self.driver)
+        self.searchResultObj = SearchResult(self.driver)
 
 
     def test_singin(self):
@@ -25,9 +24,8 @@ class MyTest (unittest.TestCase):
         self.singInPageObj.click_to_singin_button()
         self.searchObj.fill_search_fild("agv helmet")
         self.searchObj.click_search_element()
-        self.clickObj.click_result_element()
         time.sleep(6)
-
+        self.searchResultObj.click_result_element()
     def tearDown(self) -> None:
         self.driver.close()
 
