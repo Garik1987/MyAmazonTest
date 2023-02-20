@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class ClickSearchLocators():
-    clickSearchResultLocators = (By.ID, '(//div[@class="sg-col-inner"])[4]')
+    clickSearchResultLocators = (By.XPATH, '(//span[@class="a-size-base-plus a-color-base a-text-normal"])[1]')
 
 class SearchResult(ClickSearchLocators):
     def __init__(self, driver):
