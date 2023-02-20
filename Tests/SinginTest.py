@@ -26,7 +26,7 @@ class MyTest (unittest.TestCase):
         time.sleep(6)
         self.singInPageObj.fill_password_field("gar092270")
         self.singInPageObj.click_to_singin_button()
-        self.searchObj.fill_search_fild("adidas")
+        self.searchObj.fill_search_fild("agv helmet")
         self.searchObj.click_search_element()
         self.searchResultObj.click_search_result()
         self.addToCartObj.click_add_to_cart_button()
