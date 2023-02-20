@@ -4,6 +4,9 @@ import unittest
 from Sources.singinPage import SingInPage
 from Sources.navigationBar import NavigationBar
 from Sources.searchResult import SearchResult
+from Sources.addToCart import AddToCart
+
+
 class MyTest (unittest.TestCase):
     def setUp(self) -> None:
         self.driver = webdriver.Chrome()
@@ -14,6 +17,7 @@ class MyTest (unittest.TestCase):
         self.singInPageObj = SingInPage(self.driver)
         self.searchObj = NavigationBar(self.driver)
         self.searchResultObj = SearchResult(self.driver)
+        self.addToCartObj =AddToCart(self.driver)
 
 
     def test_singin(self):
@@ -22,9 +26,11 @@ class MyTest (unittest.TestCase):
         time.sleep(6)
         self.singInPageObj.fill_password_field("gar092270")
         self.singInPageObj.click_to_singin_button()
-        self.searchObj.fill_search_fild("agv helmet")
+        self.searchObj.fill_search_fild("adidas")
         self.searchObj.click_search_element()
-        self.searchResultObj.click_result_element()
-        time.sleep(6)
+        self.searchResultObj.click_search_result()
+        self.addToCartObj.click_add_to_cart_button()
+
+
     def tearDown(self) -> None:
         self.driver.close()
