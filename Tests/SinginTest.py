@@ -30,6 +30,7 @@ class MyTest (unittest.TestCase):
         self.searchObj.click_search_element()
         self.searchResultObj.click_search_result()
         self.addToCartObj.click_add_to_cart_button()
+        time.sleep(5)
 
 
     def tearDown(self) -> None:

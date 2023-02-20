@@ -1,17 +1,21 @@
 from selenium.webdriver.common.by import By
 
-class SingInPage():
+class SingInPageLocators():
+    loginFiledLocators = (By.ID, "ap_email")
+    continueButtonLocators = (By.ID, "continue")
+
+class SingInPage(SingInPageLocators):
     def __init__(self, driver):
         self.driver = driver
 
 
     def fill_login_field(self, login):
-        loginFildElement = self.driver.find_element(By.ID, "ap_email")
+        loginFildElement = self.driver.find_element(*(self.loginFiledLocators))
         loginFildElement.clear()
         loginFildElement.send_keys(login)
 
     def click_to_continue_button (self):
-        continueButtonElement = self.driver.find_element(By.ID, "continue")
+        continueButtonElement = self.driver.find_element(*(self.continueButtonLocators))
         continueButtonElement.click()
 
     def fill_password_field(self, password):
