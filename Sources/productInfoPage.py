@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
-class AddToCart():
+
+class ProductInfoPage():
     def __init__(self, driver):
         self.driver = driver
 

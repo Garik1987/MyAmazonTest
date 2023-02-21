@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class NavigationBarLocators():
     searchFildLocators = (By.ID, "twotabsearchtextbox")
-    clickElementLocators = (By.ID, "nav-search-submit-button")
+    clickSearchButtonElementLocators = (By.ID, "nav-search-submit-button")
 
 class NavigationBar(NavigationBarLocators):
     def __init__(self, driver):
@@ -14,6 +14,6 @@ class NavigationBar(NavigationBarLocators):
         searchFildElement.clear()
         searchFildElement.send_keys(text)
 
-    def click_search_element(self):
-        clickSearchElement = self.driver.find_element(*(self.clickElementLocators))
-        clickSearchElement.click()
+    def click_search_button_element(self):
+        clickSearchButtonElement = self.driver.find_element(*(self.clickSearchButtonElementLocators))
+        clickSearchButtonElement.click()
