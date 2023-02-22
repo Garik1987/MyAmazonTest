@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class MyFirstProductLocators():
-    clickMyFirstProductLocators = (By.XPATH, '(//h2[@class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"])[4]')
+    clickMyFirstProductLocators = (By.XPATH, '(//span[@class="a-size-medium a-color-base a-text-normal"])[1]')
 
 class MyFirstProduct(MyFirstProductLocators):
     def __init__(self, driver):
