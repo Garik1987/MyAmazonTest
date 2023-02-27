@@ -20,7 +20,8 @@ class MyTest (unittest.TestCase):
         self.myFirstProductObj = MyFirstProduct(self.driver)
         self.addToCartObj = ProductInfoPage(self.driver)
         self.myCartPageObj = MyCartPage(self.driver)
-        self.mainMenuPageObj = MainMenuPage(self.driver)
+        self.mainMenuPage = MainMenuPage(self.driver)
+
     def test_singin(self):
         self.singInPageObj.fill_login_field("garikarakelyan32@gmail.com")
         self.singInPageObj.click_to_continue_button()
@@ -35,8 +36,8 @@ class MyTest (unittest.TestCase):
         time.sleep(3)
         self.myCartPageObj.remove_item_from_cart()
         time.sleep(3)
-        self.mainMenuPageObj.main_menu_button()
-        time.sleep(3)
+        self.mainMenuPage.main_menu_page()
+        time.sleep(2)
 
     def tearDown(self) -> None:
         self.driver.close()
