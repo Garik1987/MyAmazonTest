@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Sources.basePage import BasePage
+from Sources.Base.basePage import BasePage
 
 class MyFirstProductLocators():
     clickMyFirstProductLocators = (By.XPATH, '(//span[@class="a-size-medium a-color-base a-text-normal"])[1]')

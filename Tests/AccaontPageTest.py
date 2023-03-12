@@ -2,11 +2,10 @@ import time
 from selenium import webdriver
 import unittest
 from Sources.NavigationBar.SinginPage.singinPage import SingInPage
-from Sources.NavigationBar.navigationBar import NavigationBar
-from Sources.ProductRealtedPages.searchResultPage import MyFirstProduct
-from Sources.ProductRealtedPages.productInfoPage import ProductInfoPage
-from Sources.NavigationBar.myCartPage import MyCartPage
-from Sources.NavigationBar.mainMenuPage import MainMenuPage
+from Sources.NavigationBar.AccountPage.accountPage import AccountPage
+from Sources.NavigationBar.AccountPage.profilesPage import ProfilesPage
+from Sources.NavigationBar.AccountPage.manageProfilePage import ManageProfilePage
+
 
 class MyTest (unittest.TestCase):
     def setUp(self) -> None:
@@ -16,28 +15,20 @@ class MyTest (unittest.TestCase):
         self.driver.maximize_window()
         self.driver.get("https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fref%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&")
         self.singInPageObj = SingInPage(self.driver)
-        self.searchButtonObj = NavigationBar(self.driver)
-        self.myFirstProductObj = MyFirstProduct(self.driver)
-        self.addToCartObj = ProductInfoPage(self.driver)
-        self.myCartPageObj = MyCartPage(self.driver)
-        self.mainMenuPage = MainMenuPage(self.driver)
+        self.accountPageObj = AccountPage(self.driver)
+        self.profilesPageObj = ProfilesPage(self.driver)
+        self.managerProfilePageObj = ManageProfilePage(self.driver)
 
     def test_singin(self):
         self.singInPageObj.fill_login_field("garikarakelyan32@gmail.com")
         self.singInPageObj.click_to_continue_button()
-        time.sleep(6)
+        time.sleep(5)
         self.singInPageObj.fill_password_field("gar092270")
         self.singInPageObj.click_to_singin_button()
-        self.searchButtonObj.fill_search_fild("Garmin Vivoactive 4")
-        self.searchButtonObj.click_search_button_element()
-        self.myFirstProductObj.click_my_first_product()
-        self.addToCartObj.click_add_to_cart_button()
-        self.myCartPageObj.my_cart_page()
-        time.sleep(3)
-        self.myCartPageObj.remove_item_from_cart()
-        time.sleep(3)
-        self.mainMenuPage.main_menu_page()
-        time.sleep(2)
+        self.accountPageObj.account_page()
+        self.profilesPageObj.profiles_page()
+        self.managerProfilePageObj.manage_profile_page()
+        time.sleep(5)
 
     def tearDown(self) -> None:
         self.driver.close()

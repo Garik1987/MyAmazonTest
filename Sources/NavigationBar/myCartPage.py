@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
-from Sources.basePage import BasePage
+from Sources.Base.basePage import BasePage
 
 class MyCartPageLocator():
     myCartPageLocator = (By.ID, "nav-cart-count-container")
-    removeItemFromCartLocator = (By.XPATH, '//*[@name="submit.delete.C61c30455-885b-4eba-9cb9-a6d441a53b50"]')
+    removeItemFromCartLocator = (By.XPATH, "(//input[@data-action='delete'])[1]")
 
 class MyCartPage(MyCartPageLocator, BasePage):
     def __init__(self, driver):

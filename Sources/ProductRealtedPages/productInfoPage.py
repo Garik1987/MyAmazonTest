@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Sources.basePage import BasePage
+from Sources.Base.basePage import BasePage
 
 class ProductInfoPageLocators():
     addToCardLocators = (By.ID, "add-to-cart-button")

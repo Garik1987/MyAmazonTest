@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Sources.basePage import BasePage
+from Sources.Base.basePage import BasePage
 class SingInPageLocators():
     loginFiledLocators = (By.ID, "ap_email")
     continueButtonLocators = (By.ID, "continue")
